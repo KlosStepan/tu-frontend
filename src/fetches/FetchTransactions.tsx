@@ -10,7 +10,7 @@ interface ICallProps {
 
 async function FetchTransactions({ accountNumber }: ICallProps) {
     const service = `accounts/${accountNumber}/transactions`
-    const response = await axios.get<ITransaction[]>(Endpoint + `/` + service, { withCredentials: false })
+    const response = await axios.get<ITransaction[]>(Endpoint + `/` + service, { headers: { 'Content-Type': 'application/json' } })
     return response.data
 }
 export default FetchTransactions;

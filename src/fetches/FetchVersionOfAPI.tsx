@@ -6,7 +6,7 @@ import IVersionOfAPI from '../ts/IVersionOfAPI';
 
 async function FetchVersionOfAPI() {
     const service = `v`
-    const response = await axios.get<IVersionOfAPI>(Endpoint + `/` + service, { withCredentials: false })
+    const response = await axios.get<IVersionOfAPI>(Endpoint + `/` + service, { headers: { 'Content-Type': 'application/json' } })
     return response.data
 }
 export default FetchVersionOfAPI;
