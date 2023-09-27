@@ -6,3 +6,4 @@ interface IBalance {
     date: string;
     type: string;
 }
+export default IBalance;

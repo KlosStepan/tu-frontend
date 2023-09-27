@@ -26,3 +26,4 @@ interface ITransaction {
     transactionTypeCode: number;
     variableSymbol: string;
 }
+export default ITransaction;

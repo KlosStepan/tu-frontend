@@ -13,3 +13,4 @@ interface IAccount {
         countryCode: string;
     };
 }
+export default IAccount;
