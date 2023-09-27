@@ -1,7 +1,15 @@
 # tu-frontend
 Frontend for the `Transparent Account` project implementing a frontend of a transparent bank account system.  
 
-# TODO
+## Frontend Project Structure
+We have these folders our source `/src`:  
+- `/components` Components/parts to assemble our React application from,
+- `/fetches` Fetch functions wrapping Axios calls on specific backend services,
+- `/pages` Pages for application in React Router `(TODO) //mby not needed though`,
+- `/ts` TypeScript interfaces used across the React application.
+
+
+## TODO
 - [ ] Components
 - [ ] Types
 - [ ] Layout
