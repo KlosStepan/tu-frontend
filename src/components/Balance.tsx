@@ -1,5 +1,6 @@
 import React from "react";
 
+//mby depr.
 const Balance = () => {
     return (
         <div>

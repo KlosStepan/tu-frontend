@@ -17,7 +17,7 @@ We have these folders our source `/src`:
 - [ ] CI/CD for ppf-fe (part of credentials already in place)
 - [ ] Endpoint URL like endpoint = ENV|hardcoded
 - [ ] Some filtering on Transactions[] like YYYYMMDD1-YYYYMMDD2, sender fulltext, etc.
-- [ ] responsive Menu - responsively breaking - list vs dropdown 
+- [ ] ~~responsive Menu - responsively breaking - list vs dropdown~~ NOT NEEDED
 ___
 
 # Getting Started with Create React App
