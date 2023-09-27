@@ -1,13 +1,35 @@
 # tu-frontend
 Frontend for the `Transparent Account` project implementing a frontend of a transparent bank account system.  
 
+## Frontend Tech Stack
+Technologies used on frontend:
+- `React.js` v. 18.2,
+- `TypeScript` v. 5.2,
+- `React Router` v. 6.2.
+
 ## Frontend Project Structure
 We have these folders our source `/src`:  
-- `/components` Components/parts to assemble our React application from,
-- `/fetches` Fetch functions wrapping Axios calls on specific backend services,
-- `/pages` Pages for application in React Router `(TODO) //mby not needed though`,
+- `/pages` Pages (3) for our SPA,
+- `/components` parts to assemble our React application pages from,
+- `/fetches` "API functions" for FE - wrapping Axios calls on specific backend services,
 - `/ts` TypeScript interfaces used across the React application.
 
+## Pages in our SPA
+We have these 3 pages in our SPA "client-side routed" via. `React Router v6`:
+- `ListingOfTransparentAccounts` (usage of `PrevAccount` comp.),
+- `TransparentAccount` (usage of `PrevPayment` comp),
+- `ViewPayment`.  
+
+As previously mentioned, we have these `Components` from which we assemble pages:
+- `PrevAccount` preview Account (only some information),
+- `PrevPayment` preview Payment (only some information).
+
+## Further Discussion Ideas
+- Architecture appropriateness.
+- ~~`Functional Components` - re: `interview` & [blogpost overview](http://blog.stkl.cz/8-react-component-overview/).~~
+- ~~`Client-side routing` re: `interview` & routing //TODO add UV example.~~
+- ~~`State managment`  useState vs. Redux/RTK vs. Context~~ ... mobX & Zustand.
+- `Next.js`, automatic imports, SSG, etc. 
 
 ## TODO
 - [ ] Components +- abstract endpoint fetches + more organizational stuff (like page/s) 
@@ -18,6 +40,7 @@ We have these folders our source `/src`:
 - [ ] Endpoint URL like endpoint = ENV|hardcoded
 - [ ] Some filtering on Transactions[] like YYYYMMDD1-YYYYMMDD2, sender fulltext, etc.
 - [ ] ~~responsive Menu - responsively breaking - list vs dropdown~~ NOT NEEDED
+
 ___
 
 # Getting Started with Create React App
