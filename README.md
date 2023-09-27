@@ -10,11 +10,14 @@ We have these folders our source `/src`:
 
 
 ## TODO
-- [ ] Components
-- [ ] Types
-- [ ] Layout
+- [ ] Components +- abstract endpoint fetches + more organizational stuff (like page/s) 
+- [x] Types
+- [ ] Layout in Material UI - Pages
 - [ ] mby QR Payments
 - [ ] CI/CD for ppf-fe (part of credentials already in place)
+- [ ] Endpoint URL like endpoint = ENV|hardcoded
+- [ ] Some filtering on Transactions[] like YYYYMMDD1-YYYYMMDD2, sender fulltext, etc.
+- [ ] responsive Menu - responsively breaking - list vs dropdown 
 ___
 
 # Getting Started with Create React App
