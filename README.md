@@ -1,3 +1,14 @@
+# tu-frontend
+Frontend for the `Transparent Account` project implementing a frontend of a transparent bank account system.  
+
+# TODO
+- [ ] Components
+- [ ] Types
+- [ ] Layout
+- [ ] mby QR Payments
+- [ ] CI/CD for ppf-fe (part of credentials already in place)
+___
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
