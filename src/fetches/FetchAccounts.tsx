@@ -6,7 +6,7 @@ import IAccount from '../ts/IAccount'
 
 async function FetchAccounts() {
     const service = `accounts`
-    const response = await axios.get<any[]>(Endpoint + `/` + service, { headers: { 'Content-Type': 'application/json' } })
+    const response = await axios.get<IAccount[]>(Endpoint + `/` + service, { headers: { 'Content-Type': 'application/json' } })
     return response.data
 }
 export default FetchAccounts;

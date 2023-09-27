@@ -10,7 +10,7 @@ interface ICallProps {
 
 async function FetchBalance({ accountNumber }: ICallProps) {
     const service = `accounts/${accountNumber}/balance`
-    const response = await axios.get<any[]>(Endpoint + `/` + service, { headers: { 'Content-Type': 'application/json' } })
+    const response = await axios.get<IBalance[]>(Endpoint + `/` + service, { headers: { 'Content-Type': 'application/json' } })
     return response.data
 }
 export default FetchBalance;

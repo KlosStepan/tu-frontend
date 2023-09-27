@@ -6,15 +6,22 @@ import Grid from '@material-ui/core/Grid';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+//TypeScript
+import IVersionOfAPI from './ts/IVersionOfAPI';
+import IAccount from './ts/IAccount';
 //Fetches
 import FetchVersionOfAPI from './fetches/FetchVersionOfAPI';
+import FetchAccounts from './fetches/FetchAccounts';
 //Pages
 import ListingOfTransparentAccounts from './pages/ListingOfTransparentAccounts';
 import TransparentAccount from './pages/TransparentAccount';
 import ViewPayment from './pages/ViewPayment';
 //Components
 import VersionOfAPI from './components/VersionOfAPI';
-
+//Redux/RTK
+import { useDispatch } from 'react-redux';
+import { setVersionOfAPI } from './redux-rtk/apiSlice';
+import { setAccounts } from './redux-rtk/bankSlice';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,14 +38,15 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function App() {
   const classes = useStyles();
+  const dispatch = useDispatch()
   useEffect(() => {
-    console.log("useEffect in App.tsx")
-    //Promise.all([viditelnost, pouziti, klasifikace, rodiny_povrchu, rodiny_vybaveni]).then((result) => {
-    //Promise.all([fetch1, fetch2, fetch3]).then(
-    //setF1(fetch1);
-    //setF2(fetch2);
-    //setF3(fetch3);
-    //)
+    //console.log("useEffect in App.tsx")
+    const version_of_api: Promise<IVersionOfAPI> = FetchVersionOfAPI();
+    const list_accounts: Promise<IAccount[]> = FetchAccounts();
+    Promise.all([version_of_api, list_accounts]).then((result) => {
+      dispatch(setVersionOfAPI(result[0]))
+      dispatch(setAccounts(result[1]))
+    })
   }, []) //<- Initial render only
   return (
     <Router basename={process.env.PUBLIC_URL}>
