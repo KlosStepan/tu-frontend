@@ -9,7 +9,9 @@ const ListingOfTransparentAccounts = () => {
     //retrieve listing of accounts
     return (
         <>
-            {/* Search Bar */}
+            <div>|<u>Search bar</u>|</div>
+            {/*<div>&nbsp;</div>*/}
+            <div>Accounts</div>
             <div>
                 {/*each soon navigate('TransparentAccount/:accountNumber)*/}
                 <PrevAccount />

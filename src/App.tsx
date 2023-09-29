@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button } from '@material-ui/core';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme, styled } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import logo from './logo.svg';
@@ -36,27 +36,37 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+const Item = styled(Paper)(({ theme }) => ({
+  //backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
 function App() {
   const classes = useStyles();
   const dispatch = useDispatch()
   useEffect(() => {
-    //console.log("useEffect in App.tsx")
     const version_of_api: Promise<IVersionOfAPI> = FetchVersionOfAPI();
     const list_accounts: Promise<IAccount[]> = FetchAccounts();
+    //
     Promise.all([version_of_api, list_accounts]).then((result) => {
       dispatch(setVersionOfAPI(result[0]))
       dispatch(setAccounts(result[1]))
     })
   }, []) //<- Initial render only
+
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div className={classes.root}>
-        <div>-Header-</div>
-        <Routes>
-          <Route path="/" element={<ListingOfTransparentAccounts />} />
-          <Route path="/account/:accountNumber" element={<TransparentAccount />} />
-          <Route path="/account/:accountNumber/payment/:paymentNumber" element={<ViewPayment />} />
-        </Routes>
+        {/*<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>*/}
+        <Item>
+          <span>Bank</span>
+        </Item>
+        {/*</div>*/}
+        <div>&nbsp;</div>
         <>
           {/*<div><span>v-Page START-v</span>
         <div>Logged in as <u>2002222222</u></div>
@@ -93,11 +103,34 @@ function App() {
         </Grid>
         <span>^-Page END-^</span></div>*/}
         </>
-        <div>
+        <Grid container spacing={2}>
+          <Grid item xs={2} md={2}>
+            {/*<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>-empty-</div>*/}
+          </Grid>
+          <Grid item xs={8} md={8}>
+            {/*<Item>xs=8 md=8</Item>*/}
+            {/*<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>*/}
+            <Item>
+              <Routes>
+                <Route path="/" element={<ListingOfTransparentAccounts />} />
+                <Route path="/account/:accountNumber" element={<TransparentAccount />} />
+                <Route path="/account/:accountNumber/payment/:paymentNumber" element={<ViewPayment />} />
+              </Routes>
+            </Item>
+            {/*</div>*/}
+          </Grid>
+          <Grid item xs={2} md={2}>
+            {/*<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>-empty-</div>*/}
+          </Grid>
+        </Grid>
+        {/*<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <VersionOfAPI />
-        </div>
+      </div>*/}
+        <Item>
+          <VersionOfAPI />
+        </Item>
       </div>
-    </Router>
+    </Router >
   );
 }
 
