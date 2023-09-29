@@ -19,7 +19,7 @@ import ViewPayment from './pages/ViewPayment';
 //Components
 import VersionOfAPI from './components/VersionOfAPI';
 //Redux/RTK
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setVersionOfAPI } from './redux-rtk/apiSlice';
 import { setAccounts } from './redux-rtk/bankSlice';
 
@@ -47,7 +47,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function App() {
   const classes = useStyles();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  //Retrieve stuff from Redux storage 
   useEffect(() => {
     const version_of_api: Promise<IVersionOfAPI> = FetchVersionOfAPI();
     const list_accounts: Promise<IAccount[]> = FetchAccounts();
