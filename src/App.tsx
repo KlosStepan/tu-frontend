@@ -46,9 +46,9 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function App() {
-  const classes = useStyles();
   const dispatch = useDispatch();
-  //Retrieve stuff from Redux storage 
+  const classes = useStyles();
+
   useEffect(() => {
     const version_of_api: Promise<IVersionOfAPI> = FetchVersionOfAPI();
     const list_accounts: Promise<IAccount[]> = FetchAccounts();
@@ -64,7 +64,7 @@ function App() {
       <div className={classes.root}>
         {/*<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>*/}
         <Item>
-          <span>Bank</span>
+          <span>Transparent Accounts in PPF Bank</span>
         </Item>
         {/*</div>*/}
         <div>&nbsp;</div>

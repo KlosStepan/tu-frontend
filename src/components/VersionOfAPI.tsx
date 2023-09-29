@@ -5,6 +5,7 @@ import IVersionOfAPI from "../ts/IVersionOfAPI";
 import { useSelector } from 'react-redux';
 
 const VersionOfAPI = () => {
+    //Redux retrieval
     const vOfAPI: IVersionOfAPI = useSelector((state: any) => state.api.versionOfAPI)
     return (
         <div>

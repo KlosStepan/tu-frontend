@@ -4,10 +4,10 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import IAccount from '../ts/IAccount'
 
 export interface IBankState {
-    accounts: IAccount[]
+    accounts: IAccount[] | null
 }
 const initialState: IBankState = {
-    accounts: []
+    accounts: null
 }
 
 export const bankSlice = createSlice({
