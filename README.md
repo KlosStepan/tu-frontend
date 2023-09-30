@@ -17,6 +17,9 @@ We have these items in our [`/src`](https://github.com/KlosStepan/tu-frontend/tr
 - `/ts` TypeScript interfaces used across the React application,
 - `/redux-rtk` Redux storage and "storage API functions" w/ reducers.
 
+## CI/CD Workflow
+We currently have 1 workflow to preform autimatic deployment process.
+- **Build+Push+Deploy** called [`build-push-deploy.yml`](https://github.com/KlosStepan/tu-frontend/blob/main/.github/workflows/build-push-deploy.yml) applies [`deployment.yaml`](https://github.com/KlosStepan/tu-frontend/blob/main/config/deployment.yaml) - runs manually.
 ## Pages in our SPA
 We have these 3 pages in our SPA "client-side routed" via. `React Router v6`:
 - `ListingOfTransparentAccounts` (uses `PrevAccount` component(s) ),
