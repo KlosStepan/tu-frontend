@@ -7,9 +7,13 @@ const TransparentAccount = () => {
     //
     useEffect(() => {
         console.log("useEffect TransparentAccount()")
+        //Runs when component is being unmounted
+        return () => {
+            console.log("-unsetting transparent account in Redux here-")
+        }
     }, [])
-    //Loading Pwnspinner
-    //accept accountNumber
+    //Loading Pwnspinner - TODO like in List
+    //accept accountNumber - OK
     return (
         <>
             <div>
