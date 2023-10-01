@@ -8,7 +8,8 @@ const PrevAccount = () => {
                 {`
                     .boxed {
                         border: 1px solid black;
-                        margin: 2px;
+                        border-radius: 4px;
+                        margin: 10px 0px 10px 0px;
                     }
                 `}
             </style>

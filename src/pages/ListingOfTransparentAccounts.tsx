@@ -1,4 +1,8 @@
 import React, { useEffect } from 'react';
+//Material UI
+import TextField from '@mui/material/TextField';
+import { Typography } from '@mui/material';
+//Components
 import PrevAccount from '../components/PrevAccount';
 //Redux/RTK
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,9 +19,13 @@ const ListingOfTransparentAccounts = () => {
 
     return (
         <>
-            <div>|<u>Search bar</u>|</div>
+            <Typography variant="h1" gutterBottom>
+                Accounts
+            </Typography>
+            <div>
+                <TextField id="outlined-search" label="Search field" type="search" />
+            </div>
             {/*<div>&nbsp;</div>*/}
-            <div>Accounts</div>
             <div>
                 {/*each soon navigate('TransparentAccount/:accountNumber)*/}
                 {(accounts !== null)
