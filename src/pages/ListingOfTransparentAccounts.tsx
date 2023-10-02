@@ -19,6 +19,15 @@ const ListingOfTransparentAccounts = () => {
 
     return (
         <>
+            <style type="text/css">
+                {`
+                    .boxed {
+                        border: 1px solid black;
+                        border-radius: 4px;
+                        margin: 10px 0px 10px 0px;
+                    }
+                `}
+            </style>
             <Typography variant="h1" gutterBottom>
                 Accounts
             </Typography>
@@ -30,8 +39,8 @@ const ListingOfTransparentAccounts = () => {
                 {/*each soon navigate('TransparentAccount/:accountNumber)*/}
                 {(accounts !== null)
                     ? (accounts.length !== 0)
-                        ? accounts.map((account: IAccount) => <PrevAccount />)
-                        : <span>-NO ACCOUNTS-</span>
+                        ? accounts.map((account: IAccount) => <PrevAccount account={account} />)
+                        : <span className="boxed">-NO ACCOUNTS-</span>
                     : <div> <Pwnspinner color="black" speed={0.7} thickness={2} /> </div>}
             </div>
         </>
