@@ -23,7 +23,7 @@ const PrevTransaction = ({ transaction }: PrevTransactionProps) => {
                     }
                 `}
             </style>
-            <div className="boxed itemRow" onClick={() => navigate('/accounts/' + transaction.id + '/transactions/5')}>
+            <div className="boxed itemRow" onClick={() => navigate('/accounts/' + 'accountNumber' + '/transactions/' + transaction.id)}>
                 <span>transaction.id | etc.</span>
             </div>
         </>

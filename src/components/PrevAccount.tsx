@@ -10,6 +10,7 @@ interface PrevAccountProps {
 //account name, account holder + LINK
 const PrevAccount = ({ account }: PrevAccountProps) => {
     const navigate = useNavigate();
+    const _parsed_accountNumber = account.identification.otherAccountNumber.split(' ')[1];
     return (
         <>
             <style type="text/css">
@@ -24,7 +25,7 @@ const PrevAccount = ({ account }: PrevAccountProps) => {
                     }
                 `}
             </style>
-            <div className="boxed itemRow" onClick={() => navigate('/accounts/' + account.id)}>
+            <div className="boxed itemRow" onClick={() => navigate('/accounts/' + _parsed_accountNumber)}>
                 <span>{account.id} | <b>{account.name}</b> in {account.currency}</span>
             </div>
         </>

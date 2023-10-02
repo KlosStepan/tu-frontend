@@ -13,9 +13,9 @@ import IAccount from './ts/IAccount';
 import FetchVersionOfAPI from './fetches/FetchVersionOfAPI';
 import FetchAccounts from './fetches/FetchAccounts';
 //Pages
-import ListingOfTransparentAccounts from './pages/ListingOfTransparentAccounts';
+import ListingOfAccounts from './pages/ListingOfAccounts';
 import TransparentAccount from './pages/TransparentAccount';
-import ViewTransaction from './pages/ViewTransaction';
+import Transaction from './pages/Transaction';
 //Components
 import VersionOfAPI from './components/VersionOfAPI';
 //Redux/RTK
@@ -113,9 +113,9 @@ function App() {
             {/*<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>*/}
             <Item>
               <Routes>
-                <Route path="/" element={<ListingOfTransparentAccounts />} />
+                <Route path="/" element={<ListingOfAccounts />} />
                 <Route path="/accounts/:accountNumber" element={<TransparentAccount />} />
-                <Route path="/accounts/:accountNumber/transactions/:transactionNumber" element={<ViewTransaction />} />
+                <Route path="/accounts/:accountNumber/transactions/:transactionNumber" element={<Transaction />} />
               </Routes>
             </Item>
             {/*</div>*/}

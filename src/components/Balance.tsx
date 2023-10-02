@@ -1,6 +1,6 @@
 import React from "react";
 
-//mby depr.
+//Component to be embedded w/ props drilling
 const Balance = () => {
     return (
         <div>

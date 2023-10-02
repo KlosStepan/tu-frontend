@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 //Material UI
 import TextField from '@mui/material/TextField';
@@ -14,16 +14,21 @@ import { setAccountTransactions, unsetAccountTransactions } from '../redux-rtk/b
 import IAccount from '../ts/IAccount';
 import ITransaction from '../ts/ITransaction';
 import { Pwnspinner } from 'pwnspinner';
+import FetchBalance from '../fetches/FetchBalance';
+import IBalance from '../ts/IBalance';
 
 const TransparentAccount = () => {
     const dispatch = useDispatch();
     let { accountNumber } = useParams();
-    //const accounts: IAccount[] | null = useSelector((state: any) => state.bank.accounts)
+    //results
+    const [balance, setBalance] = useState<IBalance | null>(null);
     const transactions: ITransaction[] | null = useSelector((state: any) => state.bank.transactions)
     useEffect(() => {
+        const balance_promise = FetchBalance({ accountNumber: accountNumber })
         const transactions_promise = FetchTransactions({ accountNumber: accountNumber });
-        Promise.resolve(transactions_promise).then((result) => {
-            dispatch(setAccountTransactions(result));
+        Promise.all([balance_promise, transactions_promise]).then((result) => {
+            //setBalance(result[0]);
+            dispatch(setAccountTransactions(result[1]));
         })
         //Runs when component is being unmounted
         return () => {
@@ -44,14 +49,14 @@ const TransparentAccount = () => {
                 `}
             </style>
             <Typography variant="h1" gutterBottom>
-                Accounts
+                Transparent Account
             </Typography>
             <div>
                 <span>&lt;- back //(navigate -1)</span>
                 <u>{accountNumber}</u>
             </div>
             {/*Transactions filtering*/}
-            {/*Similar to ListingOfTransp..*/}
+            {/*Similar to ListingOfAccou..*/}
             {' '}
             <div>
                 {(transactions !== null)
