@@ -2,14 +2,15 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 //TypeScript
 import IAccount from '../ts/IAccount'
+import ITransaction from '../ts/ITransaction'
 
 export interface IBankState {
     accounts: IAccount[] | null
-    account: IAccount | null
+    transactions: ITransaction[] | null
 }
 const initialState: IBankState = {
     accounts: null,
-    account: null
+    transactions: null
 }
 
 export const bankSlice = createSlice({
@@ -20,12 +21,12 @@ export const bankSlice = createSlice({
             state.accounts = action.payload
         },
         //TODO - use setAccount before React Router navigate
-        setAccountTransactions: (state, action: PayloadAction<IAccount>) => {
-            state.account = action.payload
+        setAccountTransactions: (state, action: PayloadAction<ITransaction[]>) => {
+            state.transactions = action.payload
         },
         //TODO - use unsetAccountunsetAccount - useEffect call upon leaving
         unsetAccountTransactions: (state) => {
-            state.account = null
+            state.transactions = null
         }
     }
 })

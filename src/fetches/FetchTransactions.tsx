@@ -5,7 +5,7 @@ import Endpoint from './Endpoint';
 import ITransaction from '../ts/ITransaction'
 //Typed props
 interface ICallProps {
-    accountNumber: number | string
+    accountNumber: number | string | undefined
 }
 
 async function FetchTransactions({ accountNumber }: ICallProps) {
