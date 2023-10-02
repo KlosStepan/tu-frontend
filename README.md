@@ -23,12 +23,12 @@ We currently have 1 workflow to preform autimatic deployment process.
 ## Pages in our SPA
 We have these 3 pages in our SPA "client-side routed" via. `React Router v6`:
 - `ListingOfTransparentAccounts` (uses `PrevAccount` component(s) ),
-- `TransparentAccount` (uses `PrevPayment` component(s) ),
-- `ViewPayment`.  
+- `TransparentAccount` (uses `PrevTransaction` component(s) ),
+- `PrevTransaction`.  
 
 As previously mentioned, we have these `Component`s from which we assemble pages:
 - `PrevAccount` preview Account (only some information) with navigate,
-- `PrevPayment` preview Payment (only some information) with navigate.
+- `PrevTransaction` preview Payment (only some information) with navigate.
 
 ## Further Discussion Ideas
 - Architecture appropriateness.
