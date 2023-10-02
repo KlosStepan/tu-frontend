@@ -15,7 +15,7 @@ import FetchAccounts from './fetches/FetchAccounts';
 //Pages
 import ListingOfTransparentAccounts from './pages/ListingOfTransparentAccounts';
 import TransparentAccount from './pages/TransparentAccount';
-import ViewPayment from './pages/ViewPayment';
+import ViewTransaction from './pages/ViewTransaction';
 //Components
 import VersionOfAPI from './components/VersionOfAPI';
 //Redux/RTK
@@ -114,8 +114,8 @@ function App() {
             <Item>
               <Routes>
                 <Route path="/" element={<ListingOfTransparentAccounts />} />
-                <Route path="/account/:accountNumber" element={<TransparentAccount />} />
-                <Route path="/account/:accountNumber/payment/:paymentNumber" element={<ViewPayment />} />
+                <Route path="/accounts/:accountNumber" element={<TransparentAccount />} />
+                <Route path="/accounts/:accountNumber/transactions/:transactionNumber" element={<ViewTransaction />} />
               </Routes>
             </Item>
             {/*</div>*/}

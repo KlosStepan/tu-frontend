@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ViewPayment = () => {
+const ViewTransaction = () => {
     let { paymentNumber } = useParams();
     //
     useEffect(() => {
-        console.log("useEffect ViewPayment()")
+        console.log("useEffect ViewTransaction()")
     }, [])
     //accept paymentNumber
     return (
@@ -23,4 +23,4 @@ const ViewPayment = () => {
         </>
     )
 }
-export default ViewPayment;
+export default ViewTransaction;

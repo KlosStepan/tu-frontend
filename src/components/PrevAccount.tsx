@@ -24,7 +24,7 @@ const PrevAccount = ({ account }: PrevAccountProps) => {
                     }
                 `}
             </style>
-            <div className="boxed itemRow" onClick={() => navigate('/account/' + account.id)}>
+            <div className="boxed itemRow" onClick={() => navigate('/accounts/' + account.id)}>
                 <span>{account.id} | <b>{account.name}</b> in {account.currency}</span>
             </div>
         </>

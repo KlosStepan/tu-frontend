@@ -20,14 +20,14 @@ export const bankSlice = createSlice({
             state.accounts = action.payload
         },
         //TODO - use setAccount before React Router navigate
-        setAccount: (state, action: PayloadAction<IAccount>) => {
+        setAccountTransactions: (state, action: PayloadAction<IAccount>) => {
             state.account = action.payload
         },
         //TODO - use unsetAccountunsetAccount - useEffect call upon leaving
-        unsetAccount: (state) => {
+        unsetAccountTransactions: (state) => {
             state.account = null
         }
     }
 })
-export const { setAccounts } = bankSlice.actions
+export const { setAccounts, setAccountTransactions, unsetAccountTransactions } = bankSlice.actions
 export default bankSlice.reducer

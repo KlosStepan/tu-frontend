@@ -11,12 +11,10 @@ import IAccount from '../ts/IAccount';
 import { Pwnspinner } from 'pwnspinner';
 
 const ListingOfTransparentAccounts = () => {
-    //Redux retrieval
     const accounts: IAccount[] | null = useSelector((state: any) => state.bank.accounts)
-    useEffect(() => {
+    /*useEffect(() => {
         console.log("useEffect ListingOfTransparentAccounts()")
-    }, [])
-
+    }, [])*/
     return (
         <>
             <style type="text/css">
@@ -34,9 +32,8 @@ const ListingOfTransparentAccounts = () => {
             <div>
                 <TextField id="outlined-search" label="Search field" type="search" />
             </div>
-            {/*<div>&nbsp;</div>*/}
+            {' '}
             <div>
-                {/*each soon navigate('TransparentAccount/:accountNumber)*/}
                 {(accounts !== null)
                     ? (accounts.length !== 0)
                         ? accounts.map((account: IAccount) => <PrevAccount account={account} />)
