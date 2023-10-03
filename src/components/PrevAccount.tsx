@@ -1,13 +1,13 @@
 import React from "react";
+//Router
 import { useNavigate } from 'react-router-dom';
 //TypeScript
 import IAccount from "../ts/IAccount";
 
 interface PrevAccountProps {
-    account: IAccount; // Define the prop with the IAccount interface
+    account: IAccount;
 }
 
-//account name, account holder + LINK
 const PrevAccount = ({ account }: PrevAccountProps) => {
     const navigate = useNavigate();
     const _parsed_accountNumber = account.identification.otherAccountNumber.split(' ')[1];
@@ -31,5 +31,4 @@ const PrevAccount = ({ account }: PrevAccountProps) => {
         </>
     )
 }
-
 export default PrevAccount;

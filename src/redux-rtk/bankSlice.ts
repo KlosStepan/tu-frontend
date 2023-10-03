@@ -12,13 +12,13 @@ export interface IBankState {
     balance: IBalance | null
     transactions: ITransaction[] | null
     // 3/3
-    transaction: ITransaction | null
+    //transaction: ITransaction | null
 }
 const initialState: IBankState = {
     accounts: null,
     balance: null,
     transactions: null,
-    transaction: null
+    //transaction: null
 }
 
 export const bankSlice = createSlice({
@@ -29,7 +29,6 @@ export const bankSlice = createSlice({
         setAccounts: (state, action: PayloadAction<IAccount[]>) => {
             state.accounts = action.payload
         },
-
         // 2/3 TransparentAccount.tsx: Account page, balance & transactions listing 
         setBalance: (state, action: PayloadAction<IBalance>) => {
             state.balance = action.payload
@@ -43,8 +42,7 @@ export const bankSlice = createSlice({
         unsetAccountTransactions: (state) => {
             state.transactions = null
         },
-
-        // 3/3 Transaction.tsx: Transaction page
+        // 3/3 Transaction.tsx: Transaction page - DEPRECATE, no need for that
         /*setTransaction: (state, action: PayloadAction<ITransaction>) => {
             state.transaction = action.payload
         },

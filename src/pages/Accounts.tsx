@@ -1,20 +1,18 @@
 import React, { useEffect } from 'react';
+//Redux/RTK
+import { useSelector } from 'react-redux';
 //Material UI
 import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
-//Components
-import PrevAccount from '../components/PrevAccount';
-//Redux/RTK
-import { useDispatch, useSelector } from 'react-redux';
 //TypeScript
 import IAccount from '../ts/IAccount';
 import { Pwnspinner } from 'pwnspinner';
+//Components
+import PrevAccount from '../components/PrevAccount';
 
 const Accounts = () => {
-    const accounts: IAccount[] | null = useSelector((state: any) => state.bank.accounts)
-    /*useEffect(() => {
-        console.log("useEffect Accounts()")
-    }, [])*/
+    const accounts: IAccount[] | null = useSelector((state: any) => state.bank.accounts);
+
     return (
         <>
             <style type="text/css">

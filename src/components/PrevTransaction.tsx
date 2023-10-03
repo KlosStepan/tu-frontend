@@ -1,14 +1,14 @@
 import React from "react";
+//Router
 import { useNavigate } from 'react-router-dom';
 //TypeScript
 import ITransaction from "../ts/ITransaction";
 
 interface PrevTransactionProps {
-    transaction: ITransaction; // Define the prop with the ITransaction interface
+    transaction: ITransaction;
 }
-//payment FROM, payment ammount, LINK View Payment
-const PrevTransaction = ({ transaction }: PrevTransactionProps) => {
 
+const PrevTransaction = ({ transaction }: PrevTransactionProps) => {
     const navigate = useNavigate();
     return (
         <>
@@ -24,11 +24,13 @@ const PrevTransaction = ({ transaction }: PrevTransactionProps) => {
                     }
                 `}
             </style>
-            <div className="boxed itemRow" onClick={() => navigate('/accounts/' + 'accountNumberXX' + '/transactions/' + transaction.id)}>
-                <span>transaction.id | etc.</span>
+            <div className="boxed itemRow" onClick={() => navigate('/accounts/' + '2002222222' + '/transactions/' + transaction.id)}>
+                <span id={transaction.id}>{transaction.bookingDate} {' '}
+                    | {transaction.counterPartyAccount.accountNumber} (<b>{transaction.counterPartyAccount.accountName}</b>){' '}
+                    | {transaction.specificSymbol} {' '}
+                    | {transaction.details.detail1}</span>
             </div>
         </>
     )
 }
-
 export default PrevTransaction;

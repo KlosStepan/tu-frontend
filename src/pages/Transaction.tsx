@@ -1,53 +1,45 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-
-import { Card, CardContent, Typography, Grid } from '@mui/material';
-import ITransaction from '../ts/ITransaction';
+//Router
+import { useParams, useNavigate } from 'react-router-dom';
+//Redux/RTK
 import { useSelector } from 'react-redux';
+//Material UI
+import { Card, CardContent, Typography, Grid } from '@mui/material';
+//TypeScript
+import ITransaction from '../ts/ITransaction';
 
 
-const ViewTransaction = () => {
+const Transaction = () => {
+    const navigate = useNavigate();
     let { transactionNumber } = useParams();
-    //retrieve transactions
-    //get one by ID
-    //[transaction]
+
+    //Transactions retrieval and Transaction(transactionNumber) slicing
     const transactions: ITransaction[] | null = useSelector((state: any) => state.bank.transactions)
-    //const transaction: ITransaction | null = transactions.find(item => item.id === transactionNumber) ?? null
-    const transaction: ITransaction | null = {
-        "amount": {
-            "currency": "CZK",
-            "value": 1500
-        },
-        "bankref": "PS221019SO314822",
-        "bookingDate": "2022-10-19",
-        "counterPartyAccount": {
-            "accountName": "PPF BANKA A.S.",
-            "accountNumber": "0000009504010019",
-            "bankCode": "6000"
-        },
-        "creditDebitIndicator": "CRDT",
-        "details": {
-            "detail1": "Posílám peníze"
-        },
-        "id": "20221019:0000000219",
-        "ownAccountNumber": "2002222222",
-        "postingDate": "2022-10-19",
-        "productBankRef": "PS221019SO314822",
-        "specificSymbol": "12",
-        "statementNumber": "196",
-        "statementPeriod": "2022",
-        "transactionId": "4831716",
-        "transactionType": "DPO",
-        "transactionTypeCode": 1012209,
-        "variableSymbol": "12"
-    };
-    console.log(transactions)
-    useEffect(() => {
-        console.log("useEffect ViewTransaction()")
-    }, [])
-    //accept paymentNumber
+    let transaction: ITransaction | undefined | null = null;
+    if (transactions != null) {
+        transaction = transactions.find(item => item.id === transactionNumber)
+    }
+
     return (
         <>
+            <style type="text/css">
+                {`
+                    .boxed {
+                        border: 1px solid black;
+                        border-radius: 4px;
+                        margin: 10px 0px 10px 0px;
+                    }
+                    .itemRow:hover {
+                        cursor: pointer;
+                    }
+                `}
+            </style>
+            <Typography variant="h1" gutterBottom>
+                Transaction
+            </Typography>
+            <div>
+                <span className="boxed itemRow" onClick={() => navigate(-1)}>&lt;- BACK</span>
+            </div>
             <Card>
                 <CardContent>
                     <Typography variant="h5" component="div">
@@ -77,4 +69,4 @@ const ViewTransaction = () => {
         </>
     )
 }
-export default ViewTransaction;
+export default Transaction;

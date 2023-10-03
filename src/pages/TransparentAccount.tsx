@@ -1,46 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Pwnspinner } from 'pwnspinner';
+//Router
+import { useParams, useNavigate } from 'react-router-dom';
+//Redux/RTK
+import { useDispatch, useSelector } from 'react-redux';
+import { setBalance, setAccountTransactions } from '../redux-rtk/bankSlice';
 //Material UI
-import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
 //Fetches
 import FetchTransactions from '../fetches/FetchTransactions';
+import FetchBalance from '../fetches/FetchBalance';
+//TypeScript
+import IBalance from '../ts/IBalance';
+import ITransaction from '../ts/ITransaction';
 //Components
 import Balance from '../components/Balance';
 import PrevTransaction from '../components/PrevTransaction';
-//Redux/RTK
-import { useDispatch, useSelector } from 'react-redux';
-import { setBalance, unsetBalance, setAccountTransactions, unsetAccountTransactions } from '../redux-rtk/bankSlice';
-//TypeScript
-import IAccount from '../ts/IAccount';
-import ITransaction from '../ts/ITransaction';
-import { Pwnspinner } from 'pwnspinner';
-import FetchBalance from '../fetches/FetchBalance';
-import IBalance from '../ts/IBalance';
 
 const TransparentAccount = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     let { accountNumber } = useParams();
-    //results
-    //const [balance, setBalance] = useState<IBalance | null>(null);
+
     const balance: IBalance | null = useSelector((state: any) => state.bank.balance)
     const transactions: ITransaction[] | null = useSelector((state: any) => state.bank.transactions)
+
     useEffect(() => {
         const balance_promise = FetchBalance({ accountNumber: accountNumber })
         const transactions_promise = FetchTransactions({ accountNumber: accountNumber });
         Promise.all([balance_promise, transactions_promise]).then((result) => {
-            //setBalance(result[0]);
             dispatch(setBalance(result[0]));
             dispatch(setAccountTransactions(result[1]));
         })
-        //Runs when component is being unmounted
-        return () => {
-            console.log("-unsetting transparent account in Redux here-")
-            //dispatch(unsetBalance());
-            //dispatch(unsetAccountTransactions());
-        }
-    }, [accountNumber])
-    //Loading Pwnspinner - TODO ala like in List
+    }, [accountNumber]) //<- Check for  accountNumber change when Component is mounted
+
     return (
         <>
             <style type="text/css">
@@ -50,18 +43,25 @@ const TransparentAccount = () => {
                         border-radius: 4px;
                         margin: 10px 0px 10px 0px;
                     }
+                    .itemRow:hover {
+                        cursor: pointer;
+                    }
                 `}
             </style>
             <Typography variant="h1" gutterBottom>
                 Transparent Account
             </Typography>
+
             <div>
-                <span>&lt;- back //(navigate -1)</span>
-                <u>{accountNumber}</u>
-                <Balance />
+                <span className="boxed itemRow" onClick={() => navigate(-1)}>&lt;- BACK</span>
+                <span>&nbsp;</span>
+                <div>
+                    Account n# <b>{accountNumber}</b>
+                </div>
+                {(balance !== null)
+                    ? < Balance balance={balance} />
+                    : <div> <Pwnspinner color="black" speed={0.7} thickness={2} /> </div>}
             </div>
-            {/*Transactions filtering*/}
-            {/*Similar to ListingOfAccou..*/}
             {' '}
             <div>
                 {(transactions !== null)

@@ -1,11 +1,10 @@
 import React from "react";
-//TypeScript
-import IVersionOfAPI from "../ts/IVersionOfAPI";
 //Redux/RTK
 import { useSelector } from 'react-redux';
+//TypeScript
+import IVersionOfAPI from "../ts/IVersionOfAPI";
 
 const VersionOfAPI = () => {
-    //Redux retrieval
     const vOfAPI: IVersionOfAPI = useSelector((state: any) => state.api.versionOfAPI)
     return (
         <div>
