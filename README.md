@@ -43,10 +43,10 @@ As previously mentioned, we have these `Component`s from which we assemble pages
 - [x] Types
 - [x] Navigate via Components to other components.
 - [x] Fill 3 pages appropriately.
-- [ ] ~~Search via Material UI ft. useRef and ES6 list operation.~~ UI re: [SwimmPair](http://swimmpair.stkl.cz/lide.php).
-- [ ] ~~Nice design using Material UI - Pages ~~ Layouts/Responsiveness re: [SwimmPair](http://swimmpair.stkl.cz/index.php) on mobile.
+- [ ] ~~Search via Material UI ft. useRef and ES6 list operation.~~ please see [SwimmPair Filtering](http://swimmpair.stkl.cz/lide.php)
+- [ ] ~~Nice design using Material UI - Pages~~ please see [SwimmPair Layouts/Responsiveness on mobile](http://swimmpair.stkl.cz/index.php)
 - [ ] mby QR Payments npm package via Rust - Vanity item
-- [x] CI/CD for ppf-fe (part of credentials already in place)
-- [ ] Endpoint URL like endpoint = ENV|hardcoded **! TODO**
-- [ ] ~~Some filtering on Transactions[] like YYYYMMDD1-YYYYMMDD2, sender fulltext, etc.~~ re: Filtering [SwimmPair](http://swimmpair.stkl.cz/lide.php)
+- [x] CI/CD for [ppf-fe.stkl.cz](http://ppf-fe.stkl.cz). 
+- [ ] Endpoint URL like endpoint = ENV|hardcoded **!TODO**
+- [ ] ~~Some filtering on Transactions[] like YYYYMMDD1-YYYYMMDD2, sender fulltext, etc.~~ please see [SwimmPair (old data, v0.90) filtering by years](http://swimmpair090.stkl.cz/clovek.php?id=21)
 - [ ] ~~responsive Menu - responsively breaking - list vs dropdown~~ NOT NEEDED
