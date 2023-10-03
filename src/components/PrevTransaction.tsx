@@ -8,6 +8,7 @@ interface PrevTransactionProps {
 }
 //payment FROM, payment ammount, LINK View Payment
 const PrevTransaction = ({ transaction }: PrevTransactionProps) => {
+
     const navigate = useNavigate();
     return (
         <>
@@ -23,7 +24,7 @@ const PrevTransaction = ({ transaction }: PrevTransactionProps) => {
                     }
                 `}
             </style>
-            <div className="boxed itemRow" onClick={() => navigate('/accounts/' + 'accountNumber' + '/transactions/' + transaction.id)}>
+            <div className="boxed itemRow" onClick={() => navigate('/accounts/' + 'accountNumberXX' + '/transactions/' + transaction.id)}>
                 <span>transaction.id | etc.</span>
             </div>
         </>

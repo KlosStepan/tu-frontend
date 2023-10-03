@@ -6,10 +6,11 @@ import { Typography } from '@mui/material';
 //Fetches
 import FetchTransactions from '../fetches/FetchTransactions';
 //Components
+import Balance from '../components/Balance';
 import PrevTransaction from '../components/PrevTransaction';
 //Redux/RTK
 import { useDispatch, useSelector } from 'react-redux';
-import { setAccountTransactions, unsetAccountTransactions } from '../redux-rtk/bankSlice';
+import { setBalance, unsetBalance, setAccountTransactions, unsetAccountTransactions } from '../redux-rtk/bankSlice';
 //TypeScript
 import IAccount from '../ts/IAccount';
 import ITransaction from '../ts/ITransaction';
@@ -21,19 +22,22 @@ const TransparentAccount = () => {
     const dispatch = useDispatch();
     let { accountNumber } = useParams();
     //results
-    const [balance, setBalance] = useState<IBalance | null>(null);
+    //const [balance, setBalance] = useState<IBalance | null>(null);
+    const balance: IBalance | null = useSelector((state: any) => state.bank.balance)
     const transactions: ITransaction[] | null = useSelector((state: any) => state.bank.transactions)
     useEffect(() => {
         const balance_promise = FetchBalance({ accountNumber: accountNumber })
         const transactions_promise = FetchTransactions({ accountNumber: accountNumber });
         Promise.all([balance_promise, transactions_promise]).then((result) => {
             //setBalance(result[0]);
+            dispatch(setBalance(result[0]));
             dispatch(setAccountTransactions(result[1]));
         })
         //Runs when component is being unmounted
         return () => {
             console.log("-unsetting transparent account in Redux here-")
-            dispatch(unsetAccountTransactions())
+            //dispatch(unsetBalance());
+            //dispatch(unsetAccountTransactions());
         }
     }, [accountNumber])
     //Loading Pwnspinner - TODO ala like in List
@@ -54,6 +58,7 @@ const TransparentAccount = () => {
             <div>
                 <span>&lt;- back //(navigate -1)</span>
                 <u>{accountNumber}</u>
+                <Balance />
             </div>
             {/*Transactions filtering*/}
             {/*Similar to ListingOfAccou..*/}

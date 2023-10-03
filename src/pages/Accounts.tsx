@@ -10,10 +10,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import IAccount from '../ts/IAccount';
 import { Pwnspinner } from 'pwnspinner';
 
-const ListingOfAccounts = () => {
+const Accounts = () => {
     const accounts: IAccount[] | null = useSelector((state: any) => state.bank.accounts)
     /*useEffect(() => {
-        console.log("useEffect ListingOfAccounts()")
+        console.log("useEffect Accounts()")
     }, [])*/
     return (
         <>
@@ -43,4 +43,4 @@ const ListingOfAccounts = () => {
         </>
     )
 }
-export default ListingOfAccounts;
+export default Accounts;

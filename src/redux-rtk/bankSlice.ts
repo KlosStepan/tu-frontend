@@ -45,12 +45,12 @@ export const bankSlice = createSlice({
         },
 
         // 3/3 Transaction.tsx: Transaction page
-        setTransaction: (state, action: PayloadAction<ITransaction>) => {
+        /*setTransaction: (state, action: PayloadAction<ITransaction>) => {
             state.transaction = action.payload
         },
         unsetTransaction: (state) => {
             state.transaction = null
-        }
+        }*/
     }
 })
 export const {
@@ -58,7 +58,7 @@ export const {
     setBalance,
     unsetBalance,
     setAccountTransactions,
-    unsetAccountTransactions,
+    unsetAccountTransactions /*,
     setTransaction,
-    unsetTransaction } = bankSlice.actions
+    unsetTransaction*/ } = bankSlice.actions
 export default bankSlice.reducer

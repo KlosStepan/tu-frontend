@@ -13,7 +13,7 @@ import IAccount from './ts/IAccount';
 import FetchVersionOfAPI from './fetches/FetchVersionOfAPI';
 import FetchAccounts from './fetches/FetchAccounts';
 //Pages
-import ListingOfAccounts from './pages/ListingOfAccounts';
+import Accounts from './pages/Accounts';
 import TransparentAccount from './pages/TransparentAccount';
 import Transaction from './pages/Transaction';
 //Components
@@ -113,7 +113,7 @@ function App() {
             {/*<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>*/}
             <Item>
               <Routes>
-                <Route path="/" element={<ListingOfAccounts />} />
+                <Route path="/" element={<Accounts />} />
                 <Route path="/accounts/:accountNumber" element={<TransparentAccount />} />
                 <Route path="/accounts/:accountNumber/transactions/:transactionNumber" element={<Transaction />} />
               </Routes>
